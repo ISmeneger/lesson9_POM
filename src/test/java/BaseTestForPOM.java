@@ -1,3 +1,4 @@
+import io.qameta.allure.Allure;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
@@ -27,7 +28,7 @@ class BaseTestForPOM {
 
     private void initDriver() {
         String remoteUrl = System.getenv("SELENIUM_REMOTE_URL");
-        System.out.println("SELENIUM_REMOTE_URL = " + remoteUrl);
+        Allure.addAttachment("remoteUrl", remoteUrl);
         if (remoteUrl != null && !remoteUrl.isEmpty()) {
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--headless");  // Add headless mode
